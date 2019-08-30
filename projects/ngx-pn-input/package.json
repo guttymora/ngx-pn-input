@@ -1,6 +1,6 @@
 {
     "name": "ngx-pn-input",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Gutty Mora",
     "license": "MIT",
     "description": "A small phone number input with country code selector for AngularJS using google-libphonenumber library by Google.",
