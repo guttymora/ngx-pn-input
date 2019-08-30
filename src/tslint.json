@@ -1,0 +1,17 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "ngxPhoneInput",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "ngx-phone-input",
+      "kebab-case"
+    ]
+  }
+}
