@@ -17,6 +17,26 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-phone-input": [
+        "dist/ngx-phone-input"
+      ],
+      "ngx-phone-input/*": [
+        "dist/ngx-phone-input/*"
+      ],
+      "ngx-phone-number-input": [
+        "dist/ngx-phone-number-input"
+      ],
+      "ngx-phone-number-input/*": [
+        "dist/ngx-phone-number-input/*"
+      ],
+      "ngx-pninput": [
+        "dist/ngx-pninput"
+      ],
+      "ngx-pninput/*": [
+        "dist/ngx-pninput/*"
+      ]
+    }
   }
 }

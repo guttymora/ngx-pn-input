@@ -1,0 +1,29 @@
+<fieldset #container>
+    <div class="input-group">
+        <div class="code-selector">
+            <span [ngClass]="'flag ' + filter.countryFlag"
+                  (click)="displayCountryList()"></span>
+            <span [ngStyle]="{'font-size': basicStyle.fontSize, 'color': basicStyle.fontColor}"
+                  [ngClass]="{'dialing-code': true}">{{filter.dialingCode}}</span>
+        </div>
+        <input #phoneNumberInput class="phone-input" placeholder="Número de teléfono"
+               (focus)="activeUnderline()"
+               (blur)="inactiveUnderline()"
+               [ngStyle]="{'font-size': basicStyle.fontSize, 'border-bottom-color': basicStyle.inactiveUnderlineColor, 'color': basicStyle.fontColor}"
+               [value]="phoneNumber"
+               (input)="handlePhoneInput($event)">
+    </div>
+    <div *ngIf="showCountryList" class="dialing-code-list">
+        <input class="country-filter" placeholder="Busca tu país"
+               [value]="userCountryNameInput"
+               (input)="searchCountryByInput($event)">
+        <div class="list-scroller">
+            <div class="option" *ngFor="let country of countryList"
+                 (click)="selectCountry(country['dialing-code'], country['iso-code'])">
+                <span [class]="'flag ' + country['iso-code']"></span>
+                <span class="country-name">{{country['name']}}</span>
+                <span class="dialing-code">+ {{country['dialing-code']}}</span>
+            </div>
+        </div>
+    </div>
+</fieldset>
