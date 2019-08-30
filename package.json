@@ -1,5 +1,5 @@
 {
-    "name": "phone-input-library",
+    "name": "ngx-pn-input",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
