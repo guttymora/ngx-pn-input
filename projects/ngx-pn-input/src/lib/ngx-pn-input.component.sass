@@ -927,7 +927,6 @@ fieldset
             display: flex
             align-items: center
             width: 60px
-            margin-bottom: 3px
 
             .flag
                 &:hover
@@ -939,12 +938,13 @@ fieldset
                 width: 35px
 
         .phone-input
+            background: none
             border: none
             outline: none
             padding: 0
             font-size: 14px
             height: 25px
-            border-bottom-width: 2px
+            border-bottom-width: 1.5px
             border-bottom-style: solid
 
             &::placeholder
@@ -962,11 +962,12 @@ fieldset
         height: auto
 
         .country-filter
+            background: none
             display: flex
             border: none
             border-bottom: 1px solid #ccc
             margin: 0
-            padding: 5px 16px
+            padding: 10px 16px
             font-size: 14px
             outline: none
 
@@ -981,10 +982,6 @@ fieldset
                 align-items: center
                 padding: 11px 16px
                 font-size: 14px
-
-                &:hover
-                    cursor: pointer
-                    background-color: #eee
 
                 .country-name
                     max-width: 180px

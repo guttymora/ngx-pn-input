@@ -119,4 +119,18 @@ export class NgxPnInputComponent implements OnInit {
     public emitPhoneData(phone, valid) {
         this.submitPhoneData.emit({phone, valid});
     }
+
+    public onMouseOver(event){
+        if(event.target.classList.contains('option')){
+            event.target.style.cursor = 'pointer';
+            event.target.style.background = this.basicStyle.optionHover || '#eee';
+        }
+    }
+
+    public onMouseLeave(event){
+        if(event.target.classList.contains('option')){
+            event.target.style.cursor = 'default';
+            event.target.style.background = 'none';
+        }
+    }
 }

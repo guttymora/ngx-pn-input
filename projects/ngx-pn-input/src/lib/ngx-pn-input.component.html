@@ -1,4 +1,4 @@
-<fieldset #container>
+<fieldset [ngStyle]="{'font-family': basicStyle.fontFamily || 'Helvetica'}" #container>
     <div class="input-group">
         <div class="code-selector">
             <span [ngClass]="'flag ' + filter.countryFlag"
@@ -9,20 +9,36 @@
         <input #phoneNumberInput class="phone-input" placeholder="Número de teléfono"
                (focus)="activeUnderline()"
                (blur)="inactiveUnderline()"
-               [ngStyle]="{'font-size': basicStyle.fontSize, 'border-bottom-color': basicStyle.inactiveUnderlineColor, 'color': basicStyle.fontColor}"
+               [ngStyle]="{
+               'font-size': basicStyle.fontSize,
+               'border-bottom-color': basicStyle.inactiveUnderlineColor,
+               'color': basicStyle.fontColor,
+               'height': basicStyle.height
+               }"
                [value]="phoneNumber"
                (input)="handlePhoneInput($event)">
     </div>
-    <div *ngIf="showCountryList" class="dialing-code-list">
+    <div *ngIf="showCountryList"
+         class="dialing-code-list"
+         [ngStyle]="{'background-color': basicStyle.modalBgColor, 'border-color': basicStyle.modalBorderColor}">
         <input class="country-filter" placeholder="Busca tu país"
+               [ngStyle]="{'color': basicStyle.fontColor, 'font-size': basicStyle.fontSize, 'border-bottom-color': basicStyle.modalBorderColor}"
                [value]="userCountryNameInput"
                (input)="searchCountryByInput($event)">
         <div class="list-scroller">
             <div class="option" *ngFor="let country of countryList"
-                 (click)="selectCountry(country['dialing-code'], country['iso-code'])">
+                 (click)="selectCountry(country['dialing-code'], country['iso-code'])"
+                 (mouseover)="onMouseOver($event)"
+                 (mouseleave)="onMouseLeave($event)">
                 <span [class]="'flag ' + country['iso-code']"></span>
-                <span class="country-name">{{country['name']}}</span>
-                <span class="dialing-code">+ {{country['dialing-code']}}</span>
+                <span class="country-name"
+                      [ngStyle]="{'color': basicStyle.fontColor, 'font-size': basicStyle.fontSize}">
+                    {{country['name']}}
+                </span>
+                <span class="dialing-code"
+                      [ngStyle]="{'opacity': '0.5', 'color': basicStyle.fontColor, 'font-size': basicStyle.fontSize}">
+                    + {{country['dialing-code']}}
+                </span>
             </div>
         </div>
     </div>
